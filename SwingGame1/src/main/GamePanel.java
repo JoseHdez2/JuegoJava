@@ -11,15 +11,17 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class GamePanel extends JPanel
 	implements Runnable, KeyListener{
 
-	// dimensions
+	// Dimensiones del panel.
 	public static final int WIDTH = 320;
 	public static final int HEIGHT = 240;
+	// Escala de
 	public static final int SCALE = 2;
 	
-	// game thread
+	// Game thread
 	private Thread thread;
 	private boolean running;
 	private int FPS = 60;
@@ -35,7 +37,7 @@ public class GamePanel extends JPanel
 	public GamePanel() {
 		super();
 		setPreferredSize(
-				new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
+			new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		setFocusable(true);
 		requestFocus();
 	}

@@ -5,23 +5,26 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+import main.Game;
 import tile_map.Background;
 
 public class MenuState extends GameState {
-
-	private Background bg;
 	
-	private int currentChoice = 0;
-	private String[] options = {
-		"Start",
-		"Help",
-		"Quit"
-	};
-	
-	private Color titleColor;
+	final String TITLE_STRING = Game.NOMBRE_JUEGO;
+	final Color TITLE_COLOR = new Color(128, 0, 0);
 	
 	final Color COLOR_OPTION_ON = Color.BLACK;
 	final Color COLOR_OPTION_OFF = Color.RED;
+	
+	final String[] OPTIONS = {
+			"Empezar",
+			"Ayuda",
+			"Salir"
+	};
+	
+	private Background bg;
+	
+	private int currentChoice = 0;
 	
 	private Font titleFont;
 	
@@ -35,8 +38,7 @@ public class MenuState extends GameState {
 			
 			bg = new Background("/Backgrounds/menubg.gif", 1);
 			bg.setVector(-0.1, 0);
-			
-			titleColor = new Color(128, 0, 0);
+
 			titleFont = new Font("Century Gothic", Font.PLAIN, 28);
 			
 			font = new Font("Arial", Font.PLAIN, 12);
@@ -55,19 +57,19 @@ public class MenuState extends GameState {
 		bg.draw(g);
 		
 		//draw title
-		g.setColor(titleColor);
+		g.setColor(TITLE_COLOR);
 		g.setFont(titleFont);
-		g.drawString("Dragon Tale", 80, 70);
+		g.drawString(TITLE_STRING, 80, 70);
 		
 		g.setFont(font);
-		for (int i = 0; i < options.length; i++){
+		for (int i = 0; i < OPTIONS.length; i++){
 			if (i == currentChoice) {
 				g.setColor(COLOR_OPTION_ON);
 			}
 			else {
 				g.setColor(COLOR_OPTION_OFF);
 			}
-			g.drawString(options[i], 145, 140 + i * 15);
+			g.drawString(OPTIONS[i], 145, 140 + i * 15);
 		}
 	}
 	
@@ -91,12 +93,12 @@ public class MenuState extends GameState {
 		if (k == KeyEvent.VK_UP){
 			currentChoice--;
 			if(currentChoice == -1) {
-				currentChoice = options.length - 1;
+				currentChoice = OPTIONS.length - 1;
 			}
 		}
 		if (k == KeyEvent.VK_DOWN){
 			currentChoice++;
-			if(currentChoice == options.length) {
+			if(currentChoice == OPTIONS.length) {
 				currentChoice = 0;
 			}
 		}
