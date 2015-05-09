@@ -38,7 +38,7 @@ public class TileMap {
 	private Tile[][] tiles;
 	
 	// Drawing
-	//Only draw tiles on the screen!
+	// Only draw tiles on the screen!
 	private int rowOffset;
 	private int colOffset;	//row
 	private int numRowsToDraw;
