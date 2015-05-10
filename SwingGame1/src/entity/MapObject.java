@@ -1,5 +1,6 @@
 package entity;
 
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
 
@@ -251,5 +252,26 @@ public abstract class MapObject {
 		
 		return beyondLeft || beyondRight ||
 				beyondUp || beyondDown;
+	}
+	
+	public void draw(Graphics2D g){
+		if(facingRight) {
+			g.drawImage(
+				animation.getImage(),
+				(int)(p_x + xmap - width / 2),
+				(int)(p_y + ymap - height / 2),
+				null
+			);
+		}
+		else {
+			g.drawImage(
+				animation.getImage(),
+				(int)(p_x + xmap - width / 2 + width),
+				(int)(p_y + ymap - height / 2),
+				-width,
+				height,
+				null
+			);
+		}
 	}
 }
