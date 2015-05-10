@@ -21,6 +21,8 @@ public class Player extends MapObject {
 	public final int DELAY_FIREBALL = 100;
 	public final int DELAY_SCRATCHING = 50;
 	
+	public final int TIME_FLINCHING = 1000;
+	
 	// player stuff
 	private int health;
 	private int maxHealth;
@@ -157,6 +159,58 @@ public class Player extends MapObject {
 		gliding = b;
 	}
 	
+	public void checkAttack(ArrayList<Enemy> enemies){
+		
+		// loop through enemies
+		for (Enemy e : enemies) {
+			// scratch attack
+			if(scratching){
+				if(facingRight){
+					if(
+					e.getX() > p_x &&
+					e.getX() < p_x + scratchRange &&
+					e.getY() > p_y - height / 2 &&
+					e.getY() < p_y + height / 2
+					) {
+						e.hit(scratchDamage);
+					}
+				}
+				else {
+					if( 
+					e.getX() < p_x &&
+					e.getX() > p_x - scratchRange &&
+					e.getY() > p_y - height / 2 &&
+					e.getY() < p_y + height / 2
+					) {
+						e.hit(scratchDamage);
+					}
+				}
+			}
+			
+			// fireballs
+			for(FireBall f : fireBalls){
+				if(f.intersects(e)){
+					e.hit(fireBallDamage);
+					f.setHit();
+				}
+			}
+			
+			//check enemy collision
+			if(intersects(e)) {
+				hit(e.getDamage());
+			}
+		}
+	}
+	
+	public void hit(int damage){
+		if(flinching) return;
+		health -= damage;
+		if(health < 0) health = 0;
+		if(health == 0) dead = true;
+		flinching = true;
+		flinchTimer = System.nanoTime();
+	}
+	
 	private boolean currentActionIsAttack(){
 		return (currentAction == SCRATCHING || currentAction == FIREBALL);
 	}
@@ -251,6 +305,15 @@ public class Player extends MapObject {
 				fireBalls.remove(i);
 				i--;
 			}
+		}
+		
+		// Check done flinching
+		if(flinching) {
+			long elapsed = 
+				(System.nanoTime() - flinchTimer) / A_MILLION;
+		if(elapsed > TIME_FLINCHING) {
+			flinching = false;
+		}
 		}
 		
 		// Asignar animacion
