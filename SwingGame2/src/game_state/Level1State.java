@@ -3,9 +3,11 @@ package game_state;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import better.entity.EntityVisible;
 import main.GamePanel;
 import tile_map.Background;
 import tile_map.TileMap;
@@ -41,7 +43,7 @@ public class Level1State extends LevelState {
 
 	final Color COLOR_CLEAR_SCREEN = Color.WHITE;
 	final int TILE_SIZE = 30;
-
+	
 	public TileMap tileMap;
 	private Background bg;
 
@@ -149,7 +151,7 @@ public class Level1State extends LevelState {
 	}
 
 	public void draw(Graphics2D g) {
-
+		
 		// Draw BG
 		bg.draw(g);
 

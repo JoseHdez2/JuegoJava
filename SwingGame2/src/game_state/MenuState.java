@@ -3,12 +3,18 @@ package game_state;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
 import main.Game;
 import tile_map.Background;
+import better.entity.Direction;
+import better.entity.simple.EntityTangible;
+import better.entity.simple.Vector;
 
 public class MenuState extends GameState {
+	
+	public EntityTangible se = new EntityTangible(new Rectangle(50,50,100,100));
 	
 	final String TITLE_STRING = Game.NOMBRE_JUEGO;
 	final Color TITLE_COLOR = new Color(128, 0, 0);
@@ -47,16 +53,19 @@ public class MenuState extends GameState {
 		}
 	}
 	
-	public void init() {}
+	public void init() {
+		se.setD(0f,0.1f);
+	}
 	public void update() {
 		bg.update();
+		se.update();
 	}
 	
 	public void draw(Graphics2D g) {
 		//
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 1000, 1000);
-		//bg.draw(g);
+		bg.draw(g);
 		
 		//draw title
 		g.setColor(TITLE_COLOR);
@@ -73,6 +82,8 @@ public class MenuState extends GameState {
 			}
 			g.drawString(OPTIONS[i], 145, 140 + i * 15);
 		}
+		
+		se.draw(g);
 	}
 	
 	private void select() {
