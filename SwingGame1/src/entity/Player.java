@@ -3,10 +3,12 @@ package entity;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
 import tile_map.TileMap;
+import audio.AudioPlayer;
 
 public class Player extends MapObject {
 
@@ -59,6 +61,8 @@ public class Player extends MapObject {
 	private static final int GLIDING = 4;
 	private static final int FIREBALL = 5;
 	private static final int SCRATCHING = 6;
+	
+	private HashMap<String, AudioPlayer> sfx;
 	
 	public Player(TileMap tm){
 		super(tm);
@@ -129,6 +133,10 @@ public class Player extends MapObject {
 		currentAction = IDLE;
 		animation.setFrames(sprites.get(IDLE));
 		animation.setDelay(DELAY_IDLE);
+		
+		sfx = new HashMap<String, AudioPlayer>();
+		sfx.put("jump", new AudioPlayer("/SFX/jump.mp3"));
+		sfx.put("scratch", new AudioPlayer("/SFX/scratch.mp3"));
 	}
 
 	public int getHealth() {
@@ -253,13 +261,14 @@ public class Player extends MapObject {
 			d_x = 0;
 		}
 		
-		// saltando
+		// jumping
 		if(jumping && !falling) {
+			sfx.get("jump").play();
 			d_y = jumpStart;
 			falling = true;
 		}
 		
-		// cayendo
+		// falling
 		if(falling) {
 			if (d_y > 0 && gliding) d_y += fallSpeed * 0.1;
 			else d_y += fallSpeed;
@@ -319,6 +328,7 @@ public class Player extends MapObject {
 		// Asignar animacion
 		if(scratching) {
 			if (currentAction != SCRATCHING) {
+				sfx.get("scratch").play();
 				currentAction = SCRATCHING;
 				animation.setFrames(sprites.get(SCRATCHING));
 				animation.setDelay(DELAY_SCRATCHING);

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import main.GamePanel;
 import tile_map.Background;
 import tile_map.TileMap;
+import audio.AudioPlayer;
 import entity.Enemy;
 import entity.Explosion;
 import entity.HUD;
@@ -51,6 +52,8 @@ public class Level1State extends LevelState {
 
 	private HUD hud;
 	
+	private AudioPlayer bgMusic;
+	
 	public Level1State(GameStateManager gsm) {
 		super(gsm);
 	}
@@ -76,6 +79,9 @@ public class Level1State extends LevelState {
 		explosions = new ArrayList<Explosion>();
 		
 		hud = new HUD(player);
+		
+		//bgMusic = new AudioPlayer("/Music/level1-1.mp3");
+		//bgMusic.play();
 	}
 	
 	private void populateEnemies() {
