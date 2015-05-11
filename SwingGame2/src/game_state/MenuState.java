@@ -54,7 +54,9 @@ public class MenuState extends GameState {
 	
 	public void draw(Graphics2D g) {
 		//
-		bg.draw(g);
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, 1000, 1000);
+		//bg.draw(g);
 		
 		//draw title
 		g.setColor(TITLE_COLOR);

@@ -80,8 +80,8 @@ public class Level1State extends LevelState {
 		
 		hud = new HUD(player);
 		
-		//bgMusic = new AudioPlayer("/Music/level1-1.mp3");
-		//bgMusic.play();
+		bgMusic = new AudioPlayer("/Music/level1-1.mp3");
+		bgMusic.play();
 	}
 	
 	private void populateEnemies() {
