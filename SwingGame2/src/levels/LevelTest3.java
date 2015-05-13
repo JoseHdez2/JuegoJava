@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import newer.entity.Entity1;
 import newer.entity.Entity3;
+import newer.entity.Entity4;
 import newer.entity.util.Vect2F;
 import bg.Background;
 
@@ -14,7 +15,7 @@ import bg.Background;
  * @author jose
  *	Class that represents Level 1 in our game.
  */
-public class LevelTest2 extends LevelState {
+public class LevelTest3 extends LevelState {
 
 	final String FILE_BACKGROUND = "/Backgrounds/bg3.gif";
 	final float BACKGROUND_PARALLAX = 0.1f;
@@ -28,12 +29,15 @@ public class LevelTest2 extends LevelState {
 	
 	public ArrayList<Entity3> entities = new ArrayList<Entity3>();
 	
-	public LevelTest2(GameStateManager gsm) {
+	public LevelTest3(GameStateManager gsm) {
 		super(gsm);
 		
 		// Test entities
-		entities.add(new Entity3());
-		entities.add(new Entity3());
+		entities.add(new Entity4());
+		entities.add(new Entity4());
+		entities.get(0).body.x = 20;
+		entities.get(0).body.y = 30;
+		entities.get(1).body.x = 155;
 		entities.get(1).body.y = 125;
 	}
 

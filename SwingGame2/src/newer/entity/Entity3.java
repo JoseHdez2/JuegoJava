@@ -8,9 +8,12 @@ import java.util.ArrayList;
 import newer.entity.util.Dir4D;
 import newer.entity.util.Dir4DEnum;
 
+/**
+ * @author jose
+ * An expansion based on the Entity2 class.
+ * This class adds collision checking.
+ */
 public class Entity3 extends Entity2{
-	
-	public String debugName = "Entity3";
 	
 	final int DEBUG_CIRCLE_RADIUS = 5;
 	final int DEBUG_CIRCLE_DIAMETER = DEBUG_CIRCLE_RADIUS * 2;

@@ -48,7 +48,8 @@ public class MenuState extends GameState {
 	final String[] OPTIONS_LEVELS = {
 		"Menu",
 		"Test Movimiento (MRU)",
-		"Test Colisiones"
+		"Test Colisiones: Deteccion",
+		"Test Colisiones: Recuperacion"
 	};
 	
 	private Background bg;
@@ -144,6 +145,7 @@ public class MenuState extends GameState {
 			case 0 : gsm.setState(GameStateManager.STATE_MENU); break;
 			case 1 : gsm.setState(GameStateManager.STATE_LV_TEST_1); break;
 			case 2 : gsm.setState(GameStateManager.STATE_LV_TEST_2); break;
+			case 3 : gsm.setState(GameStateManager.STATE_LV_TEST_3); break;
 			}
 		}
 	}

@@ -8,10 +8,12 @@ import newer.entity.util.Vect2;
 
 /**
  * @author jose
- *	Moving is added.
+ *	An expansion based on the Entity1 class.
+ *	This class adds the possibility of movement.
  */
 public class Entity2 extends Entity1 {
 	
+	// Speed at which this entity is moving in the X and Y planes.
 	public Vect2<Float> d = new Vect2<Float>(0f,0f);
 	public Dir4<Boolean> isMoving = new Dir4<Boolean>(false, false, false, false);
 	
@@ -41,6 +43,8 @@ public class Entity2 extends Entity1 {
 	 * @see newer.entity.Entity1#update()
 	 */
 	public void update(){
+		super.update();
+		
 		body.x += d.x;
 		body.y += d.y;
 	}
