@@ -5,11 +5,11 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import bg.Background;
 import newer.entity.Entity1;
 import newer.entity.Entity2;
 import newer.entity.Entity3;
 import newer.entity.util.Vect2;
-import tile_map.Background;
 
 /**
  * @author jose
@@ -33,6 +33,7 @@ public class Level2State extends LevelState {
 		super(gsm);
 		entities.add(new Entity3());
 		entities.add(new Entity3());
+		entities.get(1).body.y = 125;
 	}
 
 	public void init() {
@@ -43,11 +44,15 @@ public class Level2State extends LevelState {
 	
 	
 	public void update() {
-		/*
-		for (Entity3 e : entities){
-			Entity3[] others = (Entity3[]) entities.toArray();
-			e.checkCornersForCollisions(others);
-		}*/
+		
+		for (int i = 0; i < entities.size(); i++){
+			ArrayList<Entity1> others = new ArrayList<Entity1>();
+			for (int j = 0; j < entities.size(); j++){
+				if (j == i) continue;
+				others.add(entities.get(j));
+			}
+			entities.get(i).checkCornersForCollisions(others);
+		}
 		for (Entity3 e : entities){
 			e.update();
 		}

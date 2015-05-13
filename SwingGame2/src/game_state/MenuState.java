@@ -6,8 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import bg.Background;
 import main.Game;
-import tile_map.Background;
 
 public class MenuState extends GameState {
 	
@@ -16,6 +16,19 @@ public class MenuState extends GameState {
 	
 	final Color COLOR_OPTION_ON = Color.RED;
 	final Color COLOR_OPTION_OFF = Color.ORANGE;
+	
+	final int TITLE_START_X = 100;
+	final int TITLE_START_Y = 100;
+	
+	final int OPTION_START_X = 30;
+	final int OPTION_START_Y = 140;
+	final int OPTION_SPACING_X = 110;
+	
+	final int HELP_START_X = 60;
+	final int HELP_START_Y = 180;
+	final int HELP_SPACING_Y = 20;
+	
+	boolean showHelp = false;
 	
 	final String[] OPTIONS = {
 			"Empezar",
@@ -40,7 +53,7 @@ public class MenuState extends GameState {
 			bg = new Background("/Backgrounds/bg2.gif", 1);
 			//bg.setVector(-0.1, 0);
 
-			titleFont = new Font("Century Gothic", Font.PLAIN, 28);
+			titleFont = new Font("Arial", Font.ITALIC, 20);
 			
 			font = new Font("Arial", Font.PLAIN, 12);
 		} catch (Exception e) { 
@@ -64,7 +77,7 @@ public class MenuState extends GameState {
 		//draw title
 		g.setColor(TITLE_COLOR);
 		g.setFont(titleFont);
-		g.drawString(TITLE_STRING, 80, 100);
+		g.drawString(TITLE_STRING, TITLE_START_X, TITLE_START_Y);
 		
 		g.setFont(font);
 		for (int i = 0; i < OPTIONS.length; i++){
@@ -74,7 +87,18 @@ public class MenuState extends GameState {
 			else {
 				g.setColor(COLOR_OPTION_OFF);
 			}
-			g.drawString(OPTIONS[i], 30 + i * 110, 140);
+			g.drawString(OPTIONS[i], OPTION_START_X + i * OPTION_SPACING_X, OPTION_START_Y);
+		}
+		if (showHelp){
+			g.setColor(COLOR_OPTION_OFF);
+			String[] helpStrings = {
+				"Moverse: Flechas direccionales.",
+				"Objetivo: Llegar a la meta."
+			};
+			for (int i = 0; i < helpStrings.length; i++){
+				g.drawString(helpStrings[i], HELP_START_X, HELP_START_Y + i * HELP_SPACING_Y);
+			}
+			
 		}
 	}
 	
@@ -84,7 +108,7 @@ public class MenuState extends GameState {
 		}
 		
 		if (currentChoice == 1) {
-			gsm.setState(GameStateManager.STATE_LV_0);
+			showHelp = (showHelp) ? false : true;
 		}
 		if (currentChoice == 2) {
 			System.exit(0);

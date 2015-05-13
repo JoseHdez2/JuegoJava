@@ -4,8 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
-import tile_map.Background;
-import tile_map.TileMap;
+import bg.Background;
 
 
 /**
@@ -32,7 +31,6 @@ public abstract class LevelState extends GameState {
 	final Color COLOR_CLEAR_SCREEN = Color.WHITE;
 	final int TILE_SIZE = 30;
 
-	public TileMap tileMap;
 	private Background bg;
 
 	// Constants that will be different for each level.
@@ -51,14 +49,6 @@ public abstract class LevelState extends GameState {
 	}
 
 	public void init() {
-		// tileSize of 30
-		tileMap = new TileMap(TILE_SIZE);
-		//
-		tileMap.loadMap(FILE_MAP);
-		//
-		tileMap.loadTiles(FILE_TILESET);
-		//
-		tileMap.setPosition(0, 0);
 
 		bg = new Background(FILE_BACKGROUND, BACKGROUND_PARALLAX);
 	}
@@ -71,8 +61,6 @@ public abstract class LevelState extends GameState {
 		// Draw BG
 		bg.draw(g);
 
-		// Draw tilemap
-		tileMap.draw(g);
 	}
 
 }
