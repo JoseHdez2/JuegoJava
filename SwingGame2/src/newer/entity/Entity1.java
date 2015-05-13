@@ -18,10 +18,21 @@ public class Entity1{
 	
 	public Rect body = new Rect(100,100,100,100);
 	
-	public String debugName = "Entity";
+	public String debugName = "Entity1";
 	public Color colorDebugName = Color.BLACK;
 	public Color colorDebugBody = Color.BLACK;
 	
+	/**
+	 *	Update the entity's logic: its position, speed... 
+	 */
+	public void update(){
+		
+	}
+	
+	/**
+	 * Draw the entity to the screen.
+	 * @param g	Graphics object.
+	 */
 	public void draw(Graphics2D g){
 		drawDebug(g);
 	}
@@ -29,7 +40,7 @@ public class Entity1{
 	/**
 	 * Draw the entity in debug mode.
 	 * In this mode, it is a plain rectangle with debug values.
-	 * @param g
+	 * @param g Graphics object.
 	 */
 	public void drawDebug(Graphics2D g){
 		// Draw the body (the rectangle).
@@ -43,7 +54,5 @@ public class Entity1{
 		g.drawString(pos, body.x, body.y + DEBUG_SPACING);
 	}
 	
-	public void update(){
-		
-	}
+
 }

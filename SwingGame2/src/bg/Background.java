@@ -19,6 +19,10 @@ public class Background {
 	// Creates parallax effect.
 	private double moveScale;
 	
+	public Background(String s){
+		this(s, 0d);
+	}
+	
 	public Background(String s, double ms) {
 		
 		try {

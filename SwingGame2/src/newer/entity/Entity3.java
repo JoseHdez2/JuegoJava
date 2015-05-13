@@ -10,12 +10,19 @@ import newer.entity.util.Dir4DEnum;
 
 public class Entity3 extends Entity2{
 	
+	public String debugName = "Entity3";
+	
 	final int DEBUG_CIRCLE_RADIUS = 5;
 	final int DEBUG_CIRCLE_DIAMETER = DEBUG_CIRCLE_RADIUS * 2;
 	final Color DEBUG_COLOR_CIRCLE_NO_COL = Color.BLUE;
 	final Color DEBUG_COLOR_CIRCLE_COL = Color.RED;
 	
 	Dir4D<Boolean> cornerIsColliding = new Dir4D<Boolean>(false, false, false, false);
+	
+	public Entity3(){
+		super();
+		debugName = "Entity3";
+	}
 	
 	/**
 	 * For each corner, we ask all entities: "Is this Point inside you?".
@@ -42,6 +49,11 @@ public class Entity3 extends Entity2{
 		drawDebugCircles(g);
 	}
 	
+	/**
+	 * To be called from drawDebug().
+	 * Draws the collision circles, to show the collision value for each corner.
+	 * @param g
+	 */
 	void drawDebugCircles(Graphics2D g) {
 		Dir4D<Point> corners = body.getCorners();
 		for (Dir4DEnum dir : Dir4D.ALL_DIRECTIONS){

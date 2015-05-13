@@ -1,4 +1,4 @@
-package game_state;
+package levels;
 
 import java.awt.Graphics2D;
 import java.util.ArrayList;
@@ -10,8 +10,8 @@ public class GameStateManager {
 	private int currentState;
 	
 	public static final int STATE_MENU = 0;
-	public static final int STATE_LV_1 = 1;
-	public static final int STATE_LV_0 = 2;
+	public static final int STATE_LV_TEST_1 = 1;
+	public static final int STATE_LV_TEST_2 = 2;
 	
 	public GameStateManager() {
 		
@@ -24,10 +24,10 @@ public class GameStateManager {
 	private void loadState(int state) {
 		if(state == STATE_MENU)
 			gameStates[state] = new MenuState(this);
-		if(state == STATE_LV_1)
-			gameStates[state] = new Level2State(this);
-		if(state == STATE_LV_0)
-			gameStates[state] = new Level2State(this);
+		if(state == STATE_LV_TEST_1)
+			gameStates[state] = new LevelTest1(this);
+		if(state == STATE_LV_TEST_2)
+			gameStates[state] = new LevelTest2(this);
 	}
 	
 	private void unloadState(int state){

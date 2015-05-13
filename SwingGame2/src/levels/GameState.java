@@ -1,4 +1,4 @@
-package game_state;
+package levels;
 
 import java.awt.Graphics2D;
 

@@ -1,4 +1,4 @@
-package game_state;
+package levels;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -15,7 +15,7 @@ import newer.entity.util.Vect2;
  * @author jose
  *	Class that represents Level 1 in our game.
  */
-public class Level2State extends LevelState {
+public class LevelTest2 extends LevelState {
 
 	final String FILE_BACKGROUND = "/Backgrounds/bg3.gif";
 	final float BACKGROUND_PARALLAX = 0.1f;
@@ -29,13 +29,18 @@ public class Level2State extends LevelState {
 	
 	public ArrayList<Entity3> entities = new ArrayList<Entity3>();
 	
-	public Level2State(GameStateManager gsm) {
+	public LevelTest2(GameStateManager gsm) {
 		super(gsm);
+		
+		// Test entities
 		entities.add(new Entity3());
 		entities.add(new Entity3());
 		entities.get(1).body.y = 125;
 	}
 
+	/*
+	 * Called once the level is done loading.
+	 */
 	public void init() {
 
 		bg = new Background(FILE_BACKGROUND, BACKGROUND_PARALLAX);
@@ -43,8 +48,12 @@ public class Level2State extends LevelState {
 	}
 	
 	
+	/*
+	 * Update the game logic (Collisions, movement).
+	 */
 	public void update() {
 		
+		// Collision calculation.
 		for (int i = 0; i < entities.size(); i++){
 			ArrayList<Entity1> others = new ArrayList<Entity1>();
 			for (int j = 0; j < entities.size(); j++){
@@ -53,11 +62,16 @@ public class Level2State extends LevelState {
 			}
 			entities.get(i).checkCornersForCollisions(others);
 		}
+		
+		// Entity updating.
 		for (Entity3 e : entities){
 			e.update();
 		}
 	}
 
+	/*
+	 * Draw entities and other graphical elements to screen.
+	 */
 	public void draw(Graphics2D g) {
 		
 		// Draw BG
@@ -69,6 +83,7 @@ public class Level2State extends LevelState {
 	}
 
 	public void keyPressed(int k) {
+		super.keyPressed(k);
 		if (k == KEY_LEFT){
 			entities.get(0).body.x -= 1;
 			//entities.get(1).d.x = -1f;
