@@ -255,6 +255,14 @@ public abstract class MapObject {
 	}
 	
 	public void draw(Graphics2D g){
+		g.drawRect((int)(p_x + xmap - width / 2), 
+					(int)(p_y + ymap - height / 2), 
+					colWidth, 
+					colHeight);
+		g.drawString("Entidad",
+				(int)(p_x + xmap - width / 2), 
+				(int)(p_y + ymap - height / 2));
+
 		if(facingRight) {
 			g.drawImage(
 				animation.getImage(),

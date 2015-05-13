@@ -5,12 +5,13 @@ import java.util.ArrayList;
 
 public class GameStateManager {
 	
-	public static final int NUM_GAME_STATES = 2;
+	public static final int NUM_GAME_STATES = 3;
 	private GameState[] gameStates;
 	private int currentState;
 	
 	public static final int STATE_MENU = 0;
 	public static final int STATE_LV_1 = 1;
+	public static final int STATE_LV_0 = 2;
 	
 	public GameStateManager() {
 		
@@ -25,6 +26,8 @@ public class GameStateManager {
 			gameStates[state] = new MenuState(this);
 		if(state == STATE_LV_1)
 			gameStates[state] = new Level1State(this);
+		if(state == STATE_LV_0)
+			gameStates[state] = new Level2State(this);
 	}
 	
 	private void unloadState(int state){
@@ -43,8 +46,9 @@ public class GameStateManager {
 	public void update() {
 		try{
 			gameStates[currentState].update();
+			// System.out.println(gameStates[currentState]);
 		} catch (Exception e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 	}
 	
@@ -52,7 +56,7 @@ public class GameStateManager {
 		try {
 			gameStates[currentState].draw(g);
 		} catch (Exception e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 	}
 	

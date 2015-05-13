@@ -389,8 +389,9 @@ public class Player extends MapObject {
 	
 	public void draw(Graphics2D g) {
 		
+
 		setMapPosition();
-		
+		/*
 		// draw fireballs
 		for (FireBall fb : fireBalls){
 			fb.draw(g);
@@ -404,7 +405,8 @@ public class Player extends MapObject {
 			if(elapsed / 100 % 2 == 0) {
 				return;
 			}
-		}
+		}*/
+		
 		
 		super.draw(g);
 	}

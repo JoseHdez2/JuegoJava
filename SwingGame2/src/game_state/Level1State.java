@@ -3,12 +3,11 @@ package game_state;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import better.entity.EntityVisible;
 import main.GamePanel;
+import newer.entity.Entity1;
 import tile_map.Background;
 import tile_map.TileMap;
 import audio.AudioPlayer;
@@ -82,8 +81,8 @@ public class Level1State extends LevelState {
 		
 		hud = new HUD(player);
 		
-		bgMusic = new AudioPlayer("/Music/level1-1.mp3");
-		bgMusic.play();
+		//bgMusic = new AudioPlayer("/Music/level1-1.mp3");
+		//bgMusic.play();
 	}
 	
 	private void populateEnemies() {

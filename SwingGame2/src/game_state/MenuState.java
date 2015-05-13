@@ -3,24 +3,19 @@ package game_state;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import main.Game;
 import tile_map.Background;
-import better.entity.Direction;
-import better.entity.simple.EntityTangible;
-import better.entity.simple.Vector;
 
 public class MenuState extends GameState {
 	
-	public EntityTangible se = new EntityTangible(new Rectangle(50,50,100,100));
-	
 	final String TITLE_STRING = Game.NOMBRE_JUEGO;
-	final Color TITLE_COLOR = new Color(128, 0, 0);
+	final Color TITLE_COLOR = new Color(180, 30, 0);
 	
-	final Color COLOR_OPTION_ON = Color.BLACK;
-	final Color COLOR_OPTION_OFF = Color.RED;
+	final Color COLOR_OPTION_ON = Color.RED;
+	final Color COLOR_OPTION_OFF = Color.ORANGE;
 	
 	final String[] OPTIONS = {
 			"Empezar",
@@ -33,17 +28,17 @@ public class MenuState extends GameState {
 	private int currentChoice = 0;
 	
 	private Font titleFont;
-	
+
 	private Font font;
 	
 	public MenuState(GameStateManager gsm){
-		
+
 		this.gsm = gsm;
 		
 		try {
 			
-			bg = new Background("/Backgrounds/menubg.gif", 1);
-			bg.setVector(-0.1, 0);
+			bg = new Background("/Backgrounds/bg2.gif", 1);
+			//bg.setVector(-0.1, 0);
 
 			titleFont = new Font("Century Gothic", Font.PLAIN, 28);
 			
@@ -54,11 +49,10 @@ public class MenuState extends GameState {
 	}
 	
 	public void init() {
-		se.setD(0f,0.1f);
 	}
 	public void update() {
 		bg.update();
-		se.update();
+		
 	}
 	
 	public void draw(Graphics2D g) {
@@ -82,8 +76,6 @@ public class MenuState extends GameState {
 			}
 			g.drawString(OPTIONS[i], 145, 140 + i * 15);
 		}
-		
-		se.draw(g);
 	}
 	
 	private void select() {
@@ -92,7 +84,7 @@ public class MenuState extends GameState {
 		}
 		
 		if (currentChoice == 1) {
-			
+			gsm.setState(GameStateManager.STATE_LV_0);
 		}
 		if (currentChoice == 2) {
 			System.exit(0);
