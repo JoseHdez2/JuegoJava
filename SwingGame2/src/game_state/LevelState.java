@@ -6,7 +6,6 @@ import java.awt.event.KeyEvent;
 
 import tile_map.Background;
 import tile_map.TileMap;
-import entity.Player;
 
 
 /**
@@ -36,8 +35,6 @@ public abstract class LevelState extends GameState {
 	public TileMap tileMap;
 	private Background bg;
 
-	private Player player;
-
 	// Constants that will be different for each level.
 	
 	final String FILE_MAP = "/Maps/level1-1.map";
@@ -64,15 +61,9 @@ public abstract class LevelState extends GameState {
 		tileMap.setPosition(0, 0);
 
 		bg = new Background(FILE_BACKGROUND, BACKGROUND_PARALLAX);
-
-		player = new Player(tileMap);
-		player.setPosition(PLAYER_START_X, PLAYER_START_Y);
 	}
 
 	public void update() {
-
-		// update player
-		player.update();
 	}
 
 	public void draw(Graphics2D g) {
@@ -82,42 +73,6 @@ public abstract class LevelState extends GameState {
 
 		// Draw tilemap
 		tileMap.draw(g);
-
-		// draw player
-		player.draw(g);
 	}
 
-	public void keyPressed(int k) {
-		if (k == KEY_LEFT)
-			player.setLeft(true);
-		if (k == KEY_RIGHT)
-			player.setRight(true);
-		if (k == KEY_UP)
-			player.setUp(true);
-		if (k == KEY_DOWN)
-			player.setDown(true);
-		if (k == KEY_JUMP)
-			player.setJumping(true);
-		if (k == KEY_GLIDE)
-			player.setGliding(true);
-		if (k == KEY_SCRATCH)
-			player.setScratching();
-		if (k == KEY_FIRE)
-			player.setFiring();
-	}
-
-	public void keyReleased(int k) {
-		if (k == KEY_LEFT)
-			player.setLeft(false);
-		if (k == KEY_RIGHT)
-			player.setRight(false);
-		if (k == KEY_UP)
-			player.setUp(false);
-		if (k == KEY_DOWN)
-			player.setDown(false);
-		if (k == KEY_JUMP)
-			player.setJumping(false);
-		if (k == KEY_GLIDE)
-			player.setGliding(false);
-	}
 }

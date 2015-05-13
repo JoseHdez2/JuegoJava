@@ -25,7 +25,7 @@ public class GameStateManager {
 		if(state == STATE_MENU)
 			gameStates[state] = new MenuState(this);
 		if(state == STATE_LV_1)
-			gameStates[state] = new Level1State(this);
+			gameStates[state] = new Level2State(this);
 		if(state == STATE_LV_0)
 			gameStates[state] = new Level2State(this);
 	}

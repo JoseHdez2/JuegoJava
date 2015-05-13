@@ -64,7 +64,7 @@ public class MenuState extends GameState {
 		//draw title
 		g.setColor(TITLE_COLOR);
 		g.setFont(titleFont);
-		g.drawString(TITLE_STRING, 80, 70);
+		g.drawString(TITLE_STRING, 80, 100);
 		
 		g.setFont(font);
 		for (int i = 0; i < OPTIONS.length; i++){
@@ -74,13 +74,13 @@ public class MenuState extends GameState {
 			else {
 				g.setColor(COLOR_OPTION_OFF);
 			}
-			g.drawString(OPTIONS[i], 145, 140 + i * 15);
+			g.drawString(OPTIONS[i], 30 + i * 110, 140);
 		}
 	}
 	
 	private void select() {
 		if (currentChoice == 0) {
-			gsm.setState(GameStateManager.STATE_LV_1);
+			gsm.setState(GameStateManager.STATE_LV_0);
 		}
 		
 		if (currentChoice == 1) {
@@ -95,13 +95,13 @@ public class MenuState extends GameState {
 		if (k == KeyEvent.VK_ENTER){
 			select();
 		}
-		if (k == KeyEvent.VK_UP){
+		if (k == KeyEvent.VK_LEFT){
 			currentChoice--;
 			if(currentChoice == -1) {
 				currentChoice = OPTIONS.length - 1;
 			}
 		}
-		if (k == KeyEvent.VK_DOWN){
+		if (k == KeyEvent.VK_RIGHT){
 			currentChoice++;
 			if(currentChoice == OPTIONS.length) {
 				currentChoice = 0;
