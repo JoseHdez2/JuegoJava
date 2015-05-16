@@ -2,9 +2,9 @@ package levels;
 
 import java.awt.Graphics2D;
 
-import newer.entity.Entity1;
-import newer.entity.Entity2;
-import newer.entity.util.Vect2F;
+import entity.Entity1;
+import entity.Entity2;
+import entity.util.Vect2F;
 
 /**
  * @author jose

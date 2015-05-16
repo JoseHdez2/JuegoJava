@@ -1,10 +1,10 @@
-package newer.entity;
+package entity;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import newer.entity.util.Rect;
+import entity.util.Rect;
 
 /**
  * @author jose
@@ -14,10 +14,14 @@ import newer.entity.util.Rect;
  */
 public class Entity1{
 	
+	// Used in debugDraw. Spacing between the debug lines.
 	public int DEBUG_SPACING = 20;
 	
+	// Rectangle that acts as the body of the object.
+	// Used for tracking position and collision of the object.
 	public Rect body = new Rect(100,100,100,100);
 	
+	// Name that will be displayed in debugDraw.
 	public String debugName = "Entity1";
 	public Color colorDebugName = Color.BLACK;
 	public Color colorDebugBody = Color.BLACK;

@@ -1,10 +1,10 @@
-package newer.entity;
+package entity;
 
 import java.awt.Graphics2D;
 
-import newer.entity.util.Dir4;
-import newer.entity.util.Dir4Enum;
-import newer.entity.util.Vect2;
+import entity.util.Dir4;
+import entity.util.Dir4Enum;
+import entity.util.Vect2;
 
 /**
  * @author jose

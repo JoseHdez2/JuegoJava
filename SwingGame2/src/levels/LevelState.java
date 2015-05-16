@@ -5,9 +5,9 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import entity.Entity2;
+import entity.Entity3;
 import main.GamePanel;
-import newer.entity.Entity2;
-import newer.entity.Entity3;
 import bg.Background;
 
 

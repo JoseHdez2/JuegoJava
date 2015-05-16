@@ -5,9 +5,9 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import newer.entity.Entity1;
-import newer.entity.Entity3;
-import newer.entity.util.Vect2F;
+import entity.Entity1;
+import entity.Entity3;
+import entity.util.Vect2F;
 import bg.Background;
 
 /**

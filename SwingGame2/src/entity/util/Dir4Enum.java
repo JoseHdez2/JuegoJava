@@ -1,4 +1,4 @@
-package newer.entity.util;
+package entity.util;
 
 public enum Dir4Enum {
 	UP,

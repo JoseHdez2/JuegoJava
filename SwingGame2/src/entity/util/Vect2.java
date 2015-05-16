@@ -1,4 +1,4 @@
-package newer.entity.util;
+package entity.util;
 
 public class Vect2<T> {
 	public T x, y;

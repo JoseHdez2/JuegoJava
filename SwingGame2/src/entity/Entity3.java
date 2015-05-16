@@ -1,12 +1,12 @@
-package newer.entity;
+package entity;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import newer.entity.util.Dir4D;
-import newer.entity.util.Dir4DEnum;
+import entity.util.Dir4D;
+import entity.util.Dir4DEnum;
 
 /**
  * @author jose

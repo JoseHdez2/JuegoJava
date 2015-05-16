@@ -1,4 +1,4 @@
-package newer.entity.util;
+package entity.util;
 
 public class Vect2F extends Vect2<Float> {
 	
