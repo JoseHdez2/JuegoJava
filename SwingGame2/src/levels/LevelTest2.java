@@ -5,8 +5,10 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import entity.Entity1;
-import entity.Entity3;
+import entity.Entity1_Visible;
+import entity.Entity2_Movable;
+import entity.Entity3_Collidable;
+import entity.EntityF;
 import entity.util.Vect2F;
 import bg.Background;
 
@@ -16,89 +18,30 @@ import bg.Background;
  */
 public class LevelTest2 extends LevelState {
 
-	final String FILE_BACKGROUND = "/Backgrounds/bg3.gif";
-	final float BACKGROUND_PARALLAX = 0.1f;
-	
-	final int KEY_LEFT = KeyEvent.VK_LEFT;
-	final int KEY_RIGHT = KeyEvent.VK_RIGHT;
+	final String backgroundFile = "/Backgrounds/bg3.gif";
 
-	final Color COLOR_CLEAR_SCREEN = Color.WHITE;
-	
-	private Background bg;
-	
-	public ArrayList<Entity3> entities = new ArrayList<Entity3>();
-	
 	public LevelTest2(GameStateManager gsm) {
 		super(gsm);
 		
 		// Test entities
-		entities.add(new Entity3());
-		entities.add(new Entity3());
-		entities.get(1).body.y = 125;
-	}
-
-	/*
-	 * Called once the level is done loading.
-	 */
-	public void init() {
-
-		bg = new Background(FILE_BACKGROUND, BACKGROUND_PARALLAX);
-
-	}
-	
-	
-	/*
-	 * Update the game logic (Collisions, movement).
-	 */
-	public void update() {
-		
-		// Collision calculation.
-		for (int i = 0; i < entities.size(); i++){
-			ArrayList<Entity1> others = new ArrayList<Entity1>();
-			for (int j = 0; j < entities.size(); j++){
-				if (j == i) continue;
-				others.add(entities.get(j));
-			}
-			entities.get(i).checkCornersForCollisions(others);
-		}
-		
-		// Entity updating.
-		for (Entity3 e : entities){
-			e.update();
-		}
-	}
-
-	/*
-	 * Draw entities and other graphical elements to screen.
-	 */
-	public void draw(Graphics2D g) {
-		
-		// Draw BG
-		bg.draw(g);
-		
-		for (Entity1 e : entities){
-			e.drawDebug(g);
-		}
+		entities.add(new EntityF(100,100,100,100));
+		entities.add(new EntityF(120,120,100,100));
 	}
 
 	public void keyPressed(int k) {
 		super.keyPressed(k);
 		if (k == KEY_LEFT){
 			entities.get(0).body.x -= 1;
-			//entities.get(1).d.x = -1f;
 			entities.get(1).go(Vect2F.LEFT, 1f);
 		}
 		if (k == KEY_RIGHT){
 			entities.get(0).body.x += 1;
-			//entities.get(1).d.x = 1f;
 			entities.get(1).go(Vect2F.RIGHT, 1f);
 		}
 	}
 
 	public void keyReleased(int k) {
-		if (k == KEY_LEFT)
-			entities.get(1).stop();
-		if (k == KEY_RIGHT)
+		if (k == KEY_LEFT || k == KEY_RIGHT)
 			entities.get(1).stop();
 	}
 	

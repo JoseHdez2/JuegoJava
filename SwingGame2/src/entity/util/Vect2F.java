@@ -60,21 +60,26 @@ public class Vect2F extends Vect2<Float> {
 	}
 	
 	/**
-	 * Inverts the values of the vector.
-	 * The vector will now point in the opposite direction (a change of 180 degrees).
+	 * Returns the inverse vector to this.
+	 * Note that this vector will remain with the same values (use invert() to modify this vector).
 	 * @return 
 	 */
-	public void invert(){
+	public Vect2F inverted(){
+		return new Vect2F(-this.x, -this.y);
+	}
+	
+	/**
+	 * Inverts the values of the vector, and returns the vector.
+	 * This vector will now point in the opposite direction (a change of 180 degrees).
+	 * @return 
+	 */
+	public Vect2F invert(){
 		this.x = -x;
 		this.y = -y;
+		return this;
 	}
-
-	/**
-	 * Inverts the values of the vector.
-	 * The vector will now point in the opposite direction (a change of 180 degrees).
-	 * @param vect	Vector that will be flipped.
-	 */
-	public static Vect2F invert(Vect2F vect){
-		return new Vect2F(-vect.x, -vect.y);
+	
+	public String toString(){
+		return String.format("(%f,%f)",this.x,this.y);
 	}
 }

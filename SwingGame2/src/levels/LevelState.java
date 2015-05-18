@@ -5,8 +5,10 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import entity.Entity2;
-import entity.Entity3;
+import entity.Entity1_Visible;
+import entity.Entity2_Movable;
+import entity.Entity3_Collidable;
+import entity.EntityF;
 import main.GamePanel;
 import bg.Background;
 
@@ -32,21 +34,15 @@ public abstract class LevelState extends GameState {
 	public static final int KEY_MENU = KeyEvent.VK_ESCAPE;
 
 	// Constants and objects that appear in any level.
-	
 	final Color COLOR_CLEAR_SCREEN = Color.WHITE;
 	protected Background bg;
 
 	// Values that will be different for each level.
-	
 	String backgroundFile = "/Backgrounds/bg3.gif";
-	
-	boolean backgroundEnabled = false;
-	
-	// Player entity.
-	Entity2 player = new Entity2();
+	boolean backgroundEnabled = true;
 	
 	// Rest of entities.
-	public ArrayList<Entity2> entities = new ArrayList<Entity2>();
+	public ArrayList<EntityF> entities = new ArrayList<EntityF>();
 	
 	public LevelState(GameStateManager gsm) {
 		this.gsm = gsm;
@@ -60,8 +56,12 @@ public abstract class LevelState extends GameState {
 
 	public void update() {
 		
-		// Update the player.
-		player.update();
+		// Update the entities.
+		for (EntityF e : entities){
+			ArrayList<Entity3_Collidable> collisionList = new ArrayList<Entity3_Collidable>();
+			collisionList.addAll(entities);
+			e.update(collisionList);
+		}
 	}
 
 	public void draw(Graphics2D g) {
@@ -75,8 +75,9 @@ public abstract class LevelState extends GameState {
 			g.drawRect(0, 0, GamePanel.WIDTH * GamePanel.SCALE, GamePanel.HEIGHT * GamePanel.SCALE);
 		}
 		
-		// Draw the player.
-		player.draw(g);
+		// Draw the entities.
+		for (Entity1_Visible e : entities)
+			e.draw(g);
 
 	}
 
@@ -84,5 +85,8 @@ public abstract class LevelState extends GameState {
 		if (k == KEY_MENU){
 			gsm.setState(GameStateManager.STATE_MENU);
 		}
+	}
+	
+	public void keyReleased(int k) {
 	}
 }

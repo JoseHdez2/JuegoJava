@@ -1,7 +1,6 @@
 package levels;
 
 import java.awt.Graphics2D;
-import java.util.ArrayList;
 
 public class GameStateManager {
 	
