@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 public class Game {
 	
-	public static final String NOMBRE_JUEGO = "Advanced Plataformas";
+	public static final String NOMBRE_JUEGO = "Plataformas Advance";
 	
 	public static void main(String[] args) {
 		

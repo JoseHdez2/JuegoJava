@@ -16,11 +16,11 @@ public class MenuState extends GameState {
 	final Color COLOR_OPTION_ON = Color.RED;
 	final Color COLOR_OPTION_OFF = Color.ORANGE;
 	
-	final int TITLE_START_X = 100;
+	final int TITLE_START_X = 55;
 	final int TITLE_START_Y = 50;
 	
 	// Constants for drawing the choices' options.
-	final int OPTION_CHOICE_START_X = TITLE_START_X - 70;
+	final int OPTION_CHOICE_START_X = TITLE_START_X - 25;
 	final int OPTION_CHOICE_START_Y = TITLE_START_Y + 40;
 	final int OPTION_CHOICE_OFFSET_X = 110;
 	final int OPTION_CHOICE_OFFSET_Y = 0;
@@ -142,9 +142,9 @@ public class MenuState extends GameState {
 		else {
 			switch(currentLevel){
 			case 0 : gsm.setState(GameStateManager.STATE_MENU); break;
-			case 1 : gsm.setState(GameStateManager.STATE_LV_TEST_1); break;
-			case 2 : gsm.setState(GameStateManager.STATE_LV_TEST_2); break;
-			case 3 : gsm.setState(GameStateManager.STATE_LV_TEST_3); break;
+			case 1 : gsm.setState(GameStateManager.STATE_LV_1); break;
+			case 2 : gsm.setState(GameStateManager.STATE_LV_2); break;
+			case 3 : gsm.setState(GameStateManager.STATE_LV_3); break;
 			}
 		}
 	}

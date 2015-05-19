@@ -9,9 +9,9 @@ public class GameStateManager {
 	private int currentState;
 	
 	public static final int STATE_MENU = 0;
-	public static final int STATE_LV_TEST_1 = 1;
-	public static final int STATE_LV_TEST_2 = 2;
-	public static final int STATE_LV_TEST_3 = 3;
+	public static final int STATE_LV_1 = 1;
+	public static final int STATE_LV_2 = 2;
+	public static final int STATE_LV_3 = 3;
 	
 	public GameStateManager() {
 		
@@ -24,11 +24,11 @@ public class GameStateManager {
 	private void loadState(int state) {
 		if(state == STATE_MENU)
 			gameStates[state] = new MenuState(this);
-		if(state == STATE_LV_TEST_1)
+		if(state == STATE_LV_1)
 			gameStates[state] = new Level1(this);
-		if(state == STATE_LV_TEST_2)
+		if(state == STATE_LV_2)
 			gameStates[state] = new Level1(this);
-		if(state == STATE_LV_TEST_3)
+		if(state == STATE_LV_3)
 			gameStates[state] = new Level1(this);
 	}
 	

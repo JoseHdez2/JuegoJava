@@ -39,11 +39,11 @@ public abstract class LevelState extends GameState {
 	boolean backgroundEnabled = true;
 	
 	// Rest of entities.
-	public ArrayList<Entity3_Collidable> entities = new ArrayList<Entity3_Collidable>();
+	//public ArrayList<Entity3_Collidable> entities = new ArrayList<Entity3_Collidable>();
 	
 	public LevelState(GameStateManager gsm) {
 		this.gsm = gsm;
-		init ();
+		init();
 	}
 
 	public void init() {
@@ -52,13 +52,13 @@ public abstract class LevelState extends GameState {
 	}
 
 	public void update() {
-		
+		/*
 		// Update the entities.
 		for (Entity3_Collidable e : entities){
 			ArrayList<Entity3_Collidable> collisionList = new ArrayList<Entity3_Collidable>();
 			collisionList.addAll(entities);
 			e.update(collisionList);
-		}
+		}*/
 	}
 
 	public void draw(Graphics2D g) {
@@ -71,10 +71,10 @@ public abstract class LevelState extends GameState {
 			g.setColor(COLOR_CLEAR_SCREEN);
 			g.drawRect(0, 0, GamePanel.WIDTH * GamePanel.SCALE, GamePanel.HEIGHT * GamePanel.SCALE);
 		}
-		
+		/*
 		// Draw the entities.
 		for (Entity3_Collidable e : entities)
-			e.draw(g);
+			e.draw(g);*/
 
 	}
 
