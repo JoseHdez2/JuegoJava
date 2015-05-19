@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import levels.GameStateManager;
+import adv.level.GameStateManager;
 
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel

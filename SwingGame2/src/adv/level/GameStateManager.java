@@ -27,9 +27,9 @@ public class GameStateManager {
 		if(state == STATE_LV_TEST_1)
 			gameStates[state] = new Level1(this);
 		if(state == STATE_LV_TEST_2)
-			gameStates[state] = new MenuState(this);
+			gameStates[state] = new Level1(this);
 		if(state == STATE_LV_TEST_3)
-			gameStates[state] = new MenuState(this);
+			gameStates[state] = new Level1(this);
 	}
 	
 	private void unloadState(int state){
