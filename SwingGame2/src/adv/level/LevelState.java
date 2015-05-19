@@ -5,8 +5,8 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import main.GamePanel;
 import adv.entity.Entity3_Collidable;
+import adv.main.GamePanel;
 import bg.Background;
 
 

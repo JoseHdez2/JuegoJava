@@ -4,10 +4,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 
+import adv.main.Game;
 import bg.Background;
-import main.Game;
 
 public class MenuState extends GameState {
 	
