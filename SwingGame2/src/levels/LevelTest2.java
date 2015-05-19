@@ -32,17 +32,17 @@ public class LevelTest2 extends LevelState {
 		super.keyPressed(k);
 		if (k == KEY_LEFT){
 			entities.get(0).body.x -= 1;
-			entities.get(1).go(Vect2F.LEFT, 1f);
+			((Entity2_Movable) entities.get(1)).go(Vect2F.LEFT, 1f);
 		}
 		if (k == KEY_RIGHT){
 			entities.get(0).body.x += 1;
-			entities.get(1).go(Vect2F.RIGHT, 1f);
+			((Entity2_Movable) entities.get(1)).go(Vect2F.RIGHT, 1f);
 		}
 	}
 
 	public void keyReleased(int k) {
 		if (k == KEY_LEFT || k == KEY_RIGHT)
-			entities.get(1).stop();
+			((Entity2_Movable) entities.get(1)).stop();
 	}
 	
 }

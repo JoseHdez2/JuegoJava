@@ -42,7 +42,7 @@ public abstract class LevelState extends GameState {
 	boolean backgroundEnabled = true;
 	
 	// Rest of entities.
-	public ArrayList<EntityF> entities = new ArrayList<EntityF>();
+	public ArrayList<Entity1_Visible> entities = new ArrayList<Entity1_Visible>();
 	
 	public LevelState(GameStateManager gsm) {
 		this.gsm = gsm;
@@ -57,8 +57,8 @@ public abstract class LevelState extends GameState {
 	public void update() {
 		
 		// Update the entities.
-		for (EntityF e : entities){
-			ArrayList<Entity3_Collidable> collisionList = new ArrayList<Entity3_Collidable>();
+		for (Entity1_Visible e : entities){
+			ArrayList<Entity1_Visible> collisionList = new ArrayList<Entity1_Visible>();
 			collisionList.addAll(entities);
 			e.update(collisionList);
 		}

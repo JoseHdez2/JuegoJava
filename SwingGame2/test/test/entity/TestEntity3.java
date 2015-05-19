@@ -11,7 +11,7 @@ import entity.Entity1_Visible;
 import entity.Entity3_Collidable;
 
 public class TestEntity3 {
-
+/*
 	ArrayList<Entity1_Visible> collidableEntities;
 	Entity3_Collidable testEnt; 
 	Entity1_Visible collideTopLeft, collideBottomRight;
@@ -36,5 +36,5 @@ public class TestEntity3 {
 		assertEquals("Doesn't collide on top right.",new Boolean(false),testEnt.cornerIsColliding.topRight);
 		assertEquals("Doesn't collide on bottom left.",new Boolean(false),testEnt.cornerIsColliding.bottomLeft);
 	}
-	
+	*/
 }

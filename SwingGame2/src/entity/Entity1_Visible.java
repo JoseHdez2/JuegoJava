@@ -3,6 +3,7 @@ package entity;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.util.ArrayList;
 
 import entity.util.Rect;
 
@@ -95,6 +96,11 @@ public class Entity1_Visible{
 	
 	public void setDebugName(String debugName) {
 		this.debugName = debugName;
+	}
+
+	public void update(ArrayList<Entity1_Visible> collisionList) {
+		// TODO Auto-generated method stub
+		// TODO This is a temporal solution.
 	}
 	
 

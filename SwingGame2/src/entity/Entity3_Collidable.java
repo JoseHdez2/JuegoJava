@@ -58,7 +58,7 @@ public class Entity3_Collidable extends Entity2_Movable{
 	 * Update functions.
 	 */
 	
-	public void update(ArrayList<Entity3_Collidable> collisionList){
+	public void update(ArrayList<Entity1_Visible> collisionList){
 		checkCornersForCollisions(collisionList);
 		applySpeed();
 		applySpeedToHugBoxes();
@@ -69,15 +69,15 @@ public class Entity3_Collidable extends Entity2_Movable{
 	 * @param collisionList	List of Entities we might be colliding with.
 	 * @return	Whether corner collides with any Entity in collisionList.
 	 */
-	public void checkCornersForCollisions(ArrayList<Entity3_Collidable> collisionList){
+	public void checkCornersForCollisions(ArrayList<Entity1_Visible> collisionList){
 		if (! this.isCollidable())	return;
 		
 		Dir4D<Point> corners = body.getCorners();
 
 		cornerIsColliding = new Dir4D<Boolean>(false, false, false, false);
 		isHugging = new Dir4<Boolean>(false, false, false, false);
-		for (Entity3_Collidable e : collisionList){
-			if (e.equals(this) || e.isCollidable())
+		for (Entity1_Visible e : collisionList){
+			if (e.equals(this) || ((Entity3_Collidable) e).isCollidable())
 				continue;
 			for (Dir4DEnum dir : Dir4D.ALL_DIRECTIONS){
 				if (e.body.contains(corners.get(dir)))
