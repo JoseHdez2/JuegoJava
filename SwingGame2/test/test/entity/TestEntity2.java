@@ -1,14 +1,13 @@
 package test.entity;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import java.awt.Point;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import entity.Entity2_Movable;
+import adv.entity.Entity2_Movable;
 import entity.util.Vect2F;
 
 public class TestEntity2 {
@@ -43,7 +42,7 @@ public class TestEntity2 {
 		testEnt.update();
 		assertEquals("Moves the amount specified, per update() call.",new Point(-1,0),testEnt.body.getLocation());
 		testEnt.goX(Vect2F.RIGHT, 1);
-		assertEquals("Even if we change direction, doesn't move unless we update.",new Point(-1,0),testEnt.body.getLocation());
+		assertEquals("Even if we change direction, doesn't move unless we update.",new Point(0,0),testEnt.body.getLocation());
 		testEnt.update();
 		assertEquals("Directions can be overridden.",new Point(0,0),testEnt.body.getLocation());
 		testEnt.update();

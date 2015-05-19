@@ -46,9 +46,9 @@ public class MenuState extends GameState {
 	
 	final String[] OPTIONS_LEVELS = {
 		"Menu",
-		"Test Movimiento (MRU)",
-		"Test Colisiones: Deteccion",
-		"Test Colisiones: Recuperacion"
+		"Nivel 1",
+		"Nivel 1+",
+		"Nivel 1++"
 	};
 	
 	private Background bg;
@@ -67,7 +67,7 @@ public class MenuState extends GameState {
 		try {
 			
 			bg = new Background("/Backgrounds/bg2.gif", 1);
-			//bg.setVector(-0.1, 0);
+			// bg.setVector(-0.1, 0);
 
 			titleFont = new Font("Arial", Font.ITALIC, 20);
 			

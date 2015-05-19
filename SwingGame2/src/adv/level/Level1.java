@@ -1,7 +1,7 @@
 package adv.level;
 
 import bg.Background;
-import adv.entity.Entity3_Collidable;
+import adv.entity.EntityFinal;
 
 public class Level1 extends LevelState {
 
@@ -11,7 +11,7 @@ public class Level1 extends LevelState {
 	}
 	
 	public void init() {
-		//entities.add(new Entity3_Collidable(100, 100, 100, 100));
+		//entities.add(new EntityFinal(100, 100, 100, 100));
 		bg = new Background(backgroundFile);
 	}
 	

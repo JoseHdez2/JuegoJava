@@ -1,14 +1,5 @@
 package test.entity;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.ArrayList;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import entity.Entity1_Visible;
-import entity.Entity3_Collidable;
 
 public class TestEntity3 {
 /*

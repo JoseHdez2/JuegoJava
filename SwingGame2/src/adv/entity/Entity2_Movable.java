@@ -9,7 +9,7 @@ import entity.util.Vect2;
  *	An expansion based on the Entity1 class.
  *	This class adds movement functionality.
  */
-public abstract class Entity2_Movable extends Entity1_Visible {
+public class Entity2_Movable extends Entity1_Visible {
 	
 	// Speed at which this entity is moving in the X and Y planes.
 	public Vect2<Float> spd = new Vect2<Float>(0f,0f);
