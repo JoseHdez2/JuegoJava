@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 
 import entity.util.Dir4;
 import entity.util.Vect2;
+import entity_1.Entity1_Visible;
 
 /**
  * @author jose

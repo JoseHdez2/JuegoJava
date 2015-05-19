@@ -5,12 +5,10 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import entity.Entity1_Visible;
-import entity.Entity2_Movable;
-import entity.Entity3_Collidable;
-import entity.EntityF;
 import main.GamePanel;
 import bg.Background;
+import entity.Entity3_Collidable;
+import entity_1.Entity1_Visible;
 
 
 /**
@@ -42,7 +40,7 @@ public abstract class LevelState extends GameState {
 	boolean backgroundEnabled = true;
 	
 	// Rest of entities.
-	public ArrayList<EntityF> entities = new ArrayList<EntityF>();
+	public ArrayList<Entity3_Collidable> entities = new ArrayList<Entity3_Collidable>();
 	
 	public LevelState(GameStateManager gsm) {
 		this.gsm = gsm;
@@ -57,7 +55,7 @@ public abstract class LevelState extends GameState {
 	public void update() {
 		
 		// Update the entities.
-		for (EntityF e : entities){
+		for (Entity3_Collidable e : entities){
 			ArrayList<Entity3_Collidable> collisionList = new ArrayList<Entity3_Collidable>();
 			collisionList.addAll(entities);
 			e.update(collisionList);
