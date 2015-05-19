@@ -1,4 +1,4 @@
-package entity_1;
+package entity;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -17,9 +17,18 @@ public class Entity1_Visible{
 	// Used in debugDraw. Spacing between the debug lines.
 	public int DEBUG_SPACING = 20;
 	
+	// Default body
+	int DEFAULT_BODY_X = 100;
+	int DEFAULT_BODY_Y = 100;
+	int DEFAULT_BODY_W = 100;
+	int DEFAULT_BODY_H = 100;
+	
 	// Rectangle that acts as the body of the object.
 	// Used for tracking position and collision of the object.
-	public Rect body;
+	public Rect body = new Rect(DEFAULT_BODY_X,
+								DEFAULT_BODY_Y,
+								DEFAULT_BODY_W,
+								DEFAULT_BODY_H);
 	
 	// Name that will be displayed in debugDraw.
 	public String debugName = "Entity1";

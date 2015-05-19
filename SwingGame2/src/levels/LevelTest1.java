@@ -1,6 +1,7 @@
 package levels;
 
-import entity.Entity3_Collidable;
+import entity.Entity2_Movable;
+import entity.EntityF;
 import entity.util.Vect2F;
 
 /**
@@ -13,7 +14,7 @@ public class LevelTest1 extends LevelState {
 		super(gsm);
 		
 		// Test entity
-		entities.add(new Entity3_Collidable(100,100,100,100));
+		entities.add(new EntityF(100,100,100,100));
 	}
 
 	public void keyPressed(int k) {

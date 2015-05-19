@@ -104,7 +104,7 @@ public class Entity3_Collidable extends Entity2_Movable{
 	public void drawDebug(Graphics2D g){
 		super.drawDebug(g);
 		drawDebugCollisionCircles(g);
-		drawDebugHugWalls(g);
+		
 	}
 	
 	/**
@@ -132,7 +132,7 @@ public class Entity3_Collidable extends Entity2_Movable{
 	 * Draws the hugging walls, to show the hugging value for each side.
 	 * @param g
 	 */
-	void drawDebugHugWalls(Graphics2D g) {
+	void drawDebugHuggingWalls(Graphics2D g) {
 		for (Dir4Enum dir : Dir4.ALL_DIRECTIONS){
 			
 			Color wallColor = (isHugging.get(dir)) ? 

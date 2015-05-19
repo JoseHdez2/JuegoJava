@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+import entity.Entity1_Visible;
 import entity.Entity3_Collidable;
-import entity_1.Entity1_Visible;
 
 public class TestEntity3 {
 
