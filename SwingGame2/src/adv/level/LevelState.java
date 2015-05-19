@@ -1,4 +1,4 @@
-package levels;
+package adv.level;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -6,8 +6,8 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import main.GamePanel;
+import adv.entity.Entity3_Collidable;
 import bg.Background;
-import entity.Entity1_Visible;
 
 
 /**
@@ -20,7 +20,7 @@ public abstract class LevelState extends GameState {
 	
 	/*
 	 *  Definition of the control keys.
-	 *  These are the keys that will be used in any state of the game.
+	 *  These keys will be used in any state of the game that is playable.
 	 */
 	
 	public static final int KEY_LEFT = KeyEvent.VK_LEFT;
@@ -39,7 +39,7 @@ public abstract class LevelState extends GameState {
 	boolean backgroundEnabled = true;
 	
 	// Rest of entities.
-	public ArrayList<Entity1_Visible> entities = new ArrayList<Entity1_Visible>();
+	public ArrayList<Entity3_Collidable> entities = new ArrayList<Entity3_Collidable>();
 	
 	public LevelState(GameStateManager gsm) {
 		this.gsm = gsm;
@@ -54,8 +54,8 @@ public abstract class LevelState extends GameState {
 	public void update() {
 		
 		// Update the entities.
-		for (Entity1_Visible e : entities){
-			ArrayList<Entity1_Visible> collisionList = new ArrayList<Entity1_Visible>();
+		for (Entity3_Collidable e : entities){
+			ArrayList<Entity3_Collidable> collisionList = new ArrayList<Entity3_Collidable>();
 			collisionList.addAll(entities);
 			e.update(collisionList);
 		}
@@ -73,7 +73,7 @@ public abstract class LevelState extends GameState {
 		}
 		
 		// Draw the entities.
-		for (Entity1_Visible e : entities)
+		for (Entity3_Collidable e : entities)
 			e.draw(g);
 
 	}

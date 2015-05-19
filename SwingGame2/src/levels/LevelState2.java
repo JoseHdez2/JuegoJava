@@ -1,6 +1,6 @@
 package levels;
 
-import entity.EntityF;
+import entity.Entity2_Movable;
 import entity.util.Vect2F;
 
 /**
@@ -15,14 +15,14 @@ public class LevelState2 extends LevelState {
 	int playerStartY = 0;
 	int playerW = 100;
 	int playerH = 100;
-	EntityF player = new EntityF(100,100,100,100);
+	Entity2_Movable player = new Entity2_Movable(100,100,100,100);
 	
 	public LevelState2(GameStateManager gsm) {
 		super(gsm);
 	}
 	
 	public void init(){
-		player = new EntityF(playerStartX, playerStartY, playerW, playerH);
+		player = new Entity2_Movable(playerStartX, playerStartY, playerW, playerH);
 	}
 	
 	public void keyPressed(int k) {
