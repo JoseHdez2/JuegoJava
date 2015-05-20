@@ -12,7 +12,7 @@ import entity.util.Vect2;
 
 /**
  * @author jose
- *	You don't want to know.
+ *	Final entity class.
  */
 public class EntitySloppy {
 	

@@ -1,9 +1,7 @@
-adv.entity_1
+adv.entity
 adv.level
+adv.main
 bg
-entity
 entity.util
-levels
-main
 test.entity
 test.entity.util

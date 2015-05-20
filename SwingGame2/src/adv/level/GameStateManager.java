@@ -27,7 +27,7 @@ public class GameStateManager {
 		if(state == STATE_LV_1)
 			gameStates[state] = new Level1(this);
 		if(state == STATE_LV_2)
-			gameStates[state] = new Level1(this);
+			gameStates[state] = new Level2(this);
 		if(state == STATE_LV_3)
 			gameStates[state] = new Level1(this);
 	}

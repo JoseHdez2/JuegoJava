@@ -46,9 +46,9 @@ public class MenuState extends GameState {
 	
 	final String[] OPTIONS_LEVELS = {
 		"Menu",
-		"Nivel 1",
-		"Nivel 1+",
-		"Nivel 1++"
+		"Test Trampolin",
+		"Juego",
+		//"Nivel 1++"
 	};
 	
 	private Background bg;
@@ -122,7 +122,7 @@ public class MenuState extends GameState {
 			g.setColor(COLOR_OPTION_OFF);
 			String[] helpStrings = {
 				"Moverse: Flechas direccionales.",
-				"Objetivo: Llegar a la meta."
+				"Objetivo: Saltar y no caer!"
 			};
 			for (int i = 0; i < helpStrings.length; i++){
 				g.drawString(helpStrings[i], HELP_START_X, HELP_START_Y + i * HELP_SPACING_Y);
