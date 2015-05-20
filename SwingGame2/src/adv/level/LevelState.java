@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import adv.entity.Entity3_Collidable;
-import adv.entity.EntityFinal;
+import adv.entity.EntitySloppy;
 import adv.main.GamePanel;
 import bg.Background;
 
@@ -40,7 +40,7 @@ public abstract class LevelState extends GameState {
 	boolean backgroundEnabled = true;
 	
 	// Rest of entities.
-	public ArrayList<EntityFinal> entities = new ArrayList<EntityFinal>();
+	public ArrayList<EntitySloppy> entities = new ArrayList<EntitySloppy>();
 	
 	public LevelState(GameStateManager gsm) {
 		this.gsm = gsm;
@@ -50,13 +50,15 @@ public abstract class LevelState extends GameState {
 	public void init() {
 
 		bg = new Background(backgroundFile);
+		//entities.add(new EntitySloppy(100,100,100,100));
+		
 	}
 
 	public void update() {
 
 		// Update the entities.
-		for (EntityFinal e : entities){
-			ArrayList<Entity3_Collidable> collisionList = new ArrayList<Entity3_Collidable>();
+		for (EntitySloppy e : entities){
+			ArrayList<EntitySloppy> collisionList = new ArrayList<EntitySloppy>();
 			collisionList.addAll(entities);
 
 			e.update(collisionList);
@@ -66,7 +68,7 @@ public abstract class LevelState extends GameState {
 	public void draw(Graphics2D g) {
 
 		// Draw the background, be it an image or a white void.
-		if (backgroundEnabled) {
+		if (isBackgroundEnabled()) {
 			bg.draw(g);
 		}
 		else {
@@ -75,7 +77,7 @@ public abstract class LevelState extends GameState {
 		}
 
 		// Draw the entities.
-		for (EntityFinal e : entities)
+		for (EntitySloppy e : entities)
 			e.draw(g);
 
 	}
@@ -87,5 +89,13 @@ public abstract class LevelState extends GameState {
 	}
 	
 	public void keyReleased(int k) {
+	}
+
+	public boolean isBackgroundEnabled() {
+		return backgroundEnabled;
+	}
+
+	public void setBackgroundEnabled(boolean backgroundEnabled) {
+		this.backgroundEnabled = backgroundEnabled;
 	}
 }

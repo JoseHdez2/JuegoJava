@@ -3,13 +3,10 @@ package adv.entity;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.Rectangle;
 import java.util.ArrayList;
 
-import entity.util.Dir4;
 import entity.util.Dir4D;
 import entity.util.Dir4DEnum;
-import entity.util.Dir4Enum;
 
 /**
  * @author jose
@@ -33,25 +30,11 @@ public class Entity3_Collidable extends Entity2_Movable{
 	final Color DEBUG_COLOR_CIRCLE_COL = Color.RED;
 	
 	/*
-	 * Hugging
-	 */
-
-	public Dir4<Boolean> isHugging = new Dir4<Boolean>(false, false, false, false);
-	public Dir4<Rectangle> hugWalls;
-	
-	final int HUG_GAP = 1;
-	final Color DEBUG_COLOR_HUG_GAP_FILLED = Color.BLUE;
-	final Color DEBUG_COLOR_HUG_GAP_EMPTY = Color.CYAN;
-	
-	/*
 	 *	Collision 
 	 */
 	public Entity3_Collidable(int x, int y, int w, int h){
 		super(x,y,w,h);
 		setDebugName("Entity3");
-		hugWalls.up = new Rectangle(x - HUG_GAP, y - HUG_GAP, w + HUG_GAP * 2, HUG_GAP);
-		hugWalls.down = new Rectangle(x - HUG_GAP, y, w + HUG_GAP * 2, HUG_GAP);
-		hugWalls.left = new Rectangle(x - HUG_GAP, y - HUG_GAP, w + HUG_GAP * 2, HUG_GAP);
 	}
 	
 	/*
@@ -61,7 +44,7 @@ public class Entity3_Collidable extends Entity2_Movable{
 	public void update(ArrayList<Entity3_Collidable> collisionList){
 		checkCornersForCollisions(collisionList);
 		applySpeed();
-		applySpeedToHugBoxes();
+//		applySpeedToHugBoxes();
 	}
 	
 	/**
@@ -70,30 +53,17 @@ public class Entity3_Collidable extends Entity2_Movable{
 	 * @return whether corner collides with any Entity in collisionList.
 	 */
 	public void checkCornersForCollisions(ArrayList<Entity3_Collidable> collisionList){
-		if (! this.isCollidable())	return;
 		
 		Dir4D<Point> corners = body.getCorners();
 
 		cornerIsColliding = new Dir4D<Boolean>(false, false, false, false);
-		isHugging = new Dir4<Boolean>(false, false, false, false);
 		for (Entity3_Collidable e : collisionList){
-			if (e.equals(this) || e.isCollidable())
+			if (e.equals(this))
 				continue;
 			for (Dir4DEnum dir : Dir4D.ALL_DIRECTIONS){
 				if (e.body.contains(corners.get(dir)))
 					cornerIsColliding.set(dir, true);
 			}
-			for (Dir4Enum dir : Dir4.ALL_DIRECTIONS){
-				if (e.body.intersects(hugWalls.get(dir)))
-					isHugging.set(dir, true);
-			}
-		}
-	}
-	
-	void applySpeedToHugBoxes(){
-		for (Dir4Enum dir : Dir4.ALL_DIRECTIONS){
-			hugWalls.get(dir).x += spd.x;
-			hugWalls.get(dir).y += spd.y;
 		}
 	}
 	
@@ -125,30 +95,5 @@ public class Entity3_Collidable extends Entity2_Movable{
 					DEBUG_CIRCLE_DIAMETER,
 					DEBUG_CIRCLE_DIAMETER);
 		}
-	}
-
-	/**
-	 * To be called from drawDebug().
-	 * Draws the hugging walls, to show the hugging value for each side.
-	 * @param g
-	 */
-	void drawDebugHuggingWalls(Graphics2D g) {
-		for (Dir4Enum dir : Dir4.ALL_DIRECTIONS){
-			
-			Color wallColor = (isHugging.get(dir)) ? 
-				DEBUG_COLOR_HUG_GAP_FILLED : DEBUG_COLOR_HUG_GAP_EMPTY;
-			g.setColor(wallColor);
-
-			Rectangle r = hugWalls.get(dir);
-			g.drawRect(r.x, r.y, r.width, r.height);
-		}
-	}
-	
-	public boolean isCollidable() {
-		return collidable;
-	}
-
-	public void setCollidable(boolean collidable) {
-		this.collidable = collidable;
 	}
 }
