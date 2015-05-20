@@ -23,14 +23,14 @@ public class Level1 extends LevelState {
 	int MAX_JUMP = 60;			// Time the player can jump before falling.
 	
 	int framesPlayerFall = 0;	// Time the player has been in the air.
-	int MAX_FALL = 240;			// Time the player can stay in the air before losing.
+	int MAX_FALL = 120;			// Time the player can stay in the air before losing.
 	
 	boolean gameOver = false;	// Whether the game is over.
 	int framesGameOver = 0;		// NTime the Game Over message has been shown.
 	int MAX_OVER = 240;			// Time the Game Over message will show.
 	
 	Color GAME_OVER_COLOR = Color.RED;
-	int GAME_OVER_X = 10;
+	int GAME_OVER_X = 100;
 	int GAME_OVER_Y = 100;
 	
 	int DEV_TEXT_SP = 20;
@@ -66,7 +66,8 @@ public class Level1 extends LevelState {
 			if (entities.get(0).cornerIsColliding.get(Dir4DEnum.BOTTOM_LEFT) ||
 				entities.get(0).cornerIsColliding.get(Dir4DEnum.BOTTOM_RIGHT)){
 				framesPlayerFall = framesPlayerJump = 0;
-				levelScore += 1;				
+				levelScore += 1;
+				entities.get(0).goY(Vect2F.UP, playerJump);
 			}
 			
 			if (framesPlayerJump >= MAX_JUMP)
